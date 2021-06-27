@@ -5,14 +5,18 @@
  */
 
 const home = require('../app/controllers/home');
-
+const contact = require('../app/controllers/contact');
+const startTest = require('../app/controllers/startTest');
+const addQuestion = require('../app/controllers/addQuestion');
 /**
  * Expose
  */
 
 module.exports = function(app) {
   app.get('/', home.index);
-
+  app.get('/contact', contact.index);
+  app.get('/addQuestion', addQuestion.index);
+  app.get('/startTest', startTest.index);
   /**
    * Error handling
    */

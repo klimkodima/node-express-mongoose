@@ -1,15 +1,16 @@
 doctype html
-html(lang="en")
+html(lang="en-US" class="csstransforms csstransforms3d csstransitions")
   include ../includes/head.pug
   body
-    include ../includes/header.pug
-    .container
-      .page-header
-        block page-header
-      .messages
-        include ../includes/messages.pug
-      block main
-      .content
+    #wrapper
+      #btn-exit
+        .line-1
+        .line-2
+      .transition
+      include ../includes/header.pug
+      // content begin
+      .no-bottom.no-top.dark
         block content
-    include ../includes/footer.pug
+      include ../includes/footer.pug
+      block main
     include ../includes/foot.pug

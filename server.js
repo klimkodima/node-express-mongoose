@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 /*
  * nodejs-express-mongoose
@@ -11,7 +11,7 @@
  */
 
 require('dotenv').config();
-
+const createError = require('http-errors');
 const fs = require('fs');
 const join = require('path').join;
 const express = require('express');
@@ -56,7 +56,7 @@ function listen() {
 }
 
 function connect() {
-  var options = { keepAlive: 1, useNewUrlParser: true };
+  var options = { keepAlive: 1, useNewUrlParser: true,useUnifiedTopology: true };
   mongoose.connect(config.db, options);
   return mongoose.connection;
 }

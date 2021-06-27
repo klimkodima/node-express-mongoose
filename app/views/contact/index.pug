@@ -1,0 +1,34 @@
+extends ../layouts/default.pug
+
+block content
+	#top
+	//section begin
+	section.dark
+		.container
+			.row
+				.col-lg-12.wow.fadeInRight
+					h2.title Обратная связь
+					h4.title Если у Вас возникнут какие-либо вопросы отправьте сообщение
+					.title-underline
+				form(name="contactForm" id="contact_form" class="row form-default wow fadeInRight" data-wow-delay=".25s" method="post" action="/email")
+					.col-md-6
+						.field-set
+							input(type="text" name="name" id="name" class="form-control" placeholder="Ваше имя и фамилия")
+							.line-fx
+						.field-set
+							input(type="text" name="email" id="email" class="form-control" placeholder="Ваш е-mail")
+							.line-fx
+						.field-set
+							input(type="text" name="phone" id="phone" class="form-control" placeholder="Ваш телефон")
+							.line-fx
+					.col-md-6 
+						.field-set
+							textarea(name="message" id="message" class="form-control" placeholder="Ваше сообщение")
+							.line-fx
+					.spacer-single
+					.col-md-12.text-center
+						#submit
+							input(type="submit" id="send_message" value="Отправить Сообщение" class="btn btn-custom color-2" onclick="sendMessage()")
+						#mail_success.success Ваше сообщение было успешно отправлено.
+						#mail_fail.error Возникла ошибка при отправке вашего сообщения.
+	//section close

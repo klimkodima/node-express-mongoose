@@ -12,7 +12,7 @@ const methodOverride = require('method-override');
 const csrf = require('csurf');
 const helmet = require('helmet');
 
-const mongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const winston = require('winston');
 const helpers = require('view-helpers');
@@ -91,8 +91,8 @@ module.exports = function(app, passport) {
       proxy: true,
       resave: true,
       saveUninitialized: true,
-      store: new mongoStore({
-        url: config.db,
+      store: new MongoStore({
+        mongoUrl: config.db,
         collection: 'sessions'
       })
     })

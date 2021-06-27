@@ -1,0 +1,48 @@
+extends ../layouts/default.pug
+
+block content
+	#top
+	//section begin
+	section#section-addQuestion.dark
+		.container
+			.row.align-items-center
+				.col-lg-12.wow.fadeInRight
+					h2.title Добавление вопроса в базу данных
+					h4.title Пользователь должен:
+					h4.title 1.Ввести текст вопроса (обязательное поле, все символы поддерживаются).
+					h4.title 2.Ввести варианты ответов 1-4 (обязательные поля, все символы поддерживаются).
+					h4.title 3. Ввести варианты верного ответа (обязательное поле, Вы не должны:
+					h6.title - позволять вводить цифры, отличные от 1-4;
+					h6.title - повторять введенные цифры;
+					h6.title - вводить знаки, отличные от “,”;
+					h6.title - Нумерация ответов начинается с 1.
+					.title-underline
+				
+				.col-md-12.text-center
+					form(name="contactForm" id="contact_form" class="row form-default wow fadeInRight" data-wow-delay=".25s" method="post" action="/email")
+						.col-md-6
+							.field-set
+								input.form-control.error_input#name(type="text" name="name"  placeholder="Введите текст вопроса:")
+								.line-fx
+							.field-set
+								input.form-control(type="text" name="answer" id="answer1"  placeholder="Введите текст 1 варианта ответа:")
+								.line-fx
+							.field-set
+								input.form-control(type="text" name="answer" id="answer2"  placeholder="Введите текст 2 варианта ответа:")
+								.line-fx
+							.field-set
+								input.form-control(type="text" name="answer" id="answer3"  placeholder="Введите текст 3 варианта ответа:")
+								.line-fx
+							.field-set
+								input.form-control(type="text" name="answer" id="answer4"  placeholder="Введите текст 4 варианта ответа:")
+								.line-fx
+							.field-set
+								input.form-control(type="text" name="correctAnswers" id="correctAnswers"  placeholder="Введите номера правильных ответов через запятую. ")
+								.line-fx
+				.spacer-single
+				.col-md-12.text-center
+					#submit
+						input(type="submit" id="addQuestion" value="Добавить вопрос" class="btn btn-custom color-2" onclick="enterQuestion()")
+					#mail_success.success Вопрос добавлен в базу данных.
+					#mail_fail.error Возникла ошибка при отправке вопроса.
+	//section close

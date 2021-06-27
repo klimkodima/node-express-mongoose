@@ -1,0 +1,9 @@
+// mainmenu begin
+ul.scrollnav#mainmenu
+	- const items = {'addQuestion':'Добавить вопрос','startTest':'Начать тест','contact':'Контакты'}
+		each value, key in items
+			li
+				a(href='/'+ key)  #{value}
+// mainmenu close
+			
+		
