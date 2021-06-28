@@ -19,10 +19,10 @@ block content
 					.title-underline
 				
 				.col-md-12.text-center
-					form(name="contactForm" id="contact_form" class="row form-default wow fadeInRight" data-wow-delay=".25s" method="post" action="/email")
+					form(name="contactForm" id="contact_form" class="row form-default "  method="post" action="/addQuestion")
 						.col-md-6
 							.field-set
-								input.form-control.error_input#name(type="text" name="name"  placeholder="Введите текст вопроса:")
+								input.form-control#name(type="text" name="name"  placeholder="Введите текст вопроса:")
 								.line-fx
 							.field-set
 								input.form-control(type="text" name="answer" id="answer1"  placeholder="Введите текст 1 варианта ответа:")
@@ -42,7 +42,7 @@ block content
 				.spacer-single
 				.col-md-12.text-center
 					#submit
-						input(type="submit" id="addQuestion" value="Добавить вопрос" class="btn btn-custom color-2" onclick="enterQuestion()")
+						input(type="submit" id="addQuestion" value="Добавить вопрос" class="btn btn-custom color-2" onclick="")
 					#mail_success.success Вопрос добавлен в базу данных.
 					#mail_fail.error Возникла ошибка при отправке вопроса.
 	//section close
