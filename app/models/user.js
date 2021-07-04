@@ -4,17 +4,12 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+const passportLocalMongoose = require('passport-local-mongoose');
 /**
  * User schema
  */
 
-const UserSchema = new Schema({
-  name: { type: String, default: '' },
-  email: { type: String, default: '' },
-  hashed_password: { type: String, default: '' },
-  salt: { type: String, default: '' }
-});
+const User = new Schema();
 
 /**
  * Add your
@@ -27,16 +22,16 @@ const UserSchema = new Schema({
  * Methods
  */
 
-UserSchema.method({});
+User.method({});
 
 /**
  * Statics
  */
 
-UserSchema.static({});
+User.static({});
 
 /**
  * Register
  */
-
-mongoose.model('User', UserSchema);
+User.plugin(passportLocalMongoose);
+module.exports = mongoose.model('User', User);

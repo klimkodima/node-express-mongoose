@@ -66,12 +66,18 @@ module.exports = function(app, passport) {
   });
 
   // bodyParser should be above methodOverride
-  app.use(
+/*  app.use(
     bodyParser.urlencoded({
-      extended: true
+      extended: false
     })
   );
   app.use(bodyParser.json());
+  */
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({
+        extended: true
+    })) // for parsing application/x-www-form-urlencoded 
+  
   app.use(
     methodOverride(function(req) {
       if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -109,7 +115,7 @@ module.exports = function(app, passport) {
   app.use(helpers(pkg.name));
 
   // adds CSRF support
-  if (process.env.NODE_ENV !== 'test') {
+ /* if (process.env.NODE_ENV !== 'test') {
     app.use(csrf());
 
     // This could be moved to view-helpers :-)
@@ -117,5 +123,5 @@ module.exports = function(app, passport) {
       res.locals.csrf_token = req.csrfToken();
       next();
     });
-  }
+  }*/
 };

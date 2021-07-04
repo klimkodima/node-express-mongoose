@@ -1,0 +1,24 @@
+extends ../layouts/default.pug
+block content
+	#top
+	//section begin
+	section#section-startTest.dark
+		.container
+			row.row.align-items-center
+				.col-md-6
+					h1.wow.fadeInRight(data-wow-delay=".4s") Практическое задание
+					p.lead.wow.fadeInRight(data-wow-delay=".5s")
+					.spacer-single
+			.col-md-12#Questions
+				form#taskForm.overflow-auto(name="taskForm" onsubmit="checkForm();return false")
+					ol(name="questions")
+						each value, key in questions
+							li( style="font-weight:bold;") #{value.text}
+								each value1, key1 in value.answers
+									br
+									input(type="checkbox" name="answer" value=key1+1 class="checkbox")
+									label(style="font-weight:normal;") #{value1}
+				
+					input#startTask.btn.btn-custom.color-2(type="submit" value ="Проверить задание")
+			#resuls.success Задание проверяется
+	//section close

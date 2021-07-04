@@ -8,6 +8,7 @@ const home = require('../app/controllers/home');
 const contact = require('../app/controllers/contact');
 const startTest = require('../app/controllers/startTest');
 const addQuestion = require('../app/controllers/addQuestion');
+const authentication = require('../app/controllers/authentication');
 /**
  * Expose
  */
@@ -17,6 +18,12 @@ module.exports = function(app) {
   app.get('/contact', contact.index);
   app.get('/addQuestion', addQuestion.index);
   app.get('/startTest', startTest.index);
+  app.get('/startTask', startTest.getQuestions);
+  app.get('/registration', authentication.login);
+  app.get('/register', authentication.register);
+  app.post('/register', authentication.registerUser);
+  app.post('/addQuestion', addQuestion.postQuestions);
+  app.post('/checkTask', startTest.checkTask);
   /**
    * Error handling
    */

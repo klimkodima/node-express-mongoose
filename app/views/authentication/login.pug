@@ -1,0 +1,40 @@
+extends ../layouts/default.pug
+
+block content
+	#top
+	//section begin
+	section.dark
+		.container
+			.row
+				.col-lg-12.wow.fadeInRight
+					h2.title Вход
+				.col-lg-3.wow.fadeInRight
+				.col-lg-6.wow.fadeInRight
+					.title-underline
+					form(name="contactForm" role="form" id="login_form" class="row form-default wow fadeInRight" data-wow-delay=".25s" method="post", action=action, enctype="multipart/form-data")
+						.col-md-12.text-center
+							.field-set
+								input(type="text" name="username" id="username" class="form-control" placeholder="Введите e-mail")
+								.line-fx
+							.field-set
+								input(type="password" name="password" id="password" class="form-control" placeholder=" Введите Пароль")
+								.line-fx
+						
+						.spacer-single
+						.col-md-12.text-center
+							#submit
+								input(type="submit" id="login" value="Войти" class="btn btn-custom color-2")
+						.spacer-single
+				.col-lg-12.wow.fadeInRight
+				.col-md-3.wow.fadeInRight
+				.col-md-6.wow.fadeInRight.text-center
+						a(href='/')
+							button.btn.btn-custom.color-2(type="button") Забыли пароль
+						.spacer-single
+						a(href='/register')
+							button.btn.btn-custom.color-2(type="button") Регистрация
+						.spacer-single
+						a(href='/')
+							button.btn.btn-custom.color-2(type="button") Отмена
+				#login_fail.error Возникла ошибка при отправке вопроса.			
+	//section close

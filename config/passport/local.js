@@ -22,10 +22,10 @@ module.exports = new LocalStrategy(
     User.load(options, function(err, user) {
       if (err) return done(err);
       if (!user) {
-        return done(null, false, { message: 'Unknown user' });
+        return done(null, false, { message: 'Неправильный  е-mail' });
       }
       if (!user.authenticate(password)) {
-        return done(null, false, { message: 'Invalid password' });
+        return done(null, false, { message: 'Неправильный пароль' });
       }
       return done(null, user);
     });
